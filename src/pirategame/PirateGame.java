@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
@@ -34,6 +35,7 @@ public class PirateGame extends Application {
 			Ship.timer.cancel();
 		});
 		
+		stage.getIcons().add(new Image("file:src/images/PirateSkull.png"));
 		stage.setTitle("Pirate Game");
 		stage.setScene(scene);
 		stage.show();

@@ -49,7 +49,7 @@ public class PirateGameFXMLController implements Initializable {
 		
 		Ship.setPaneSize(
 			1600,	//(int)anchorPane.getWidth(), 
-			900		//(int)anchorPane.getHeight()-80
+			900-100		//(int)anchorPane.getHeight()-80
 		);
 		
 		// put imageViews in list
