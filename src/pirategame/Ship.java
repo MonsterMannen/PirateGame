@@ -13,8 +13,8 @@ import javafx.scene.image.WritableImage;
 public abstract class Ship {
 	protected static Timer timer = new Timer();
 	protected static int delay = 20;
-	protected static int paneWidth;
-	protected static int paneHeight;
+	public static int paneWidth;
+	public static int paneHeight;
 	protected Point position;
 	protected String name;
 	protected int speed;
@@ -23,6 +23,7 @@ public abstract class Ship {
 	protected boolean sailsUp;
 	protected Direction direction;
 	protected BufferedImage img;
+	protected boolean autoChangeDir;
 	
 	protected enum Direction {
 		north, northeast, east, southeast,
@@ -36,6 +37,7 @@ public abstract class Ship {
 		speed = 0;
 		sailsUp = false;
 		hp = hp_max;
+		autoChangeDir = false;
 		
 		// init timer
 		timer.scheduleAtFixedRate(new TimerTask() {
@@ -53,6 +55,7 @@ public abstract class Ship {
 	
 	protected void update(){
 		move();
+		checkCrash();
 	}
 	
 	protected void move(){
@@ -97,6 +100,20 @@ public abstract class Ship {
 		}
 	}
 	
+	private void checkCrash(){
+		if(!autoChangeDir) return;
+		
+		if(getPosition().getY() > paneHeight){
+			setDirection(Direction.north);
+		}else if(getPosition().getX() > paneWidth){
+			setDirection(Direction.west);
+		}else if(getPosition().getX() < 0){
+			setDirection(Direction.east);
+		}else if(getPosition().getY() < 0){
+			setDirection(Direction.south);
+		}
+	}
+	
 	public void damage(int dmg){
 		hp -= dmg;
 		if(hp < 0) hp = 0;
@@ -124,6 +141,10 @@ public abstract class Ship {
 	
 	public void setSpeed(int amount){
 		speed = amount;
+	}
+	
+	public void setAutoChangeDir(boolean b){
+		autoChangeDir = b;
 	}
 	
 	public WritableImage getImage(){

@@ -42,7 +42,6 @@ public class PirateShip extends Ship {
 		cannonBallsFired.add(new CannonBallDir(direction, iv));
 		
 		return iv;
-		// should fire sideways
 	}
 	
 	@Override
@@ -93,7 +92,7 @@ public class PirateShip extends Ship {
 				}
 			}
 			
-			if(toBeRemoved != -1){
+			if(toBeRemoved >= 0 && toBeRemoved < cannonBallsFired.size()){
 				cannonBallsFired.remove(toBeRemoved);
 			}
 		}

@@ -27,7 +27,7 @@ public class MerchantShip extends Ship {
 	private Image readImage(){
 		Image image = null;
 		try {
-			image = ImageIO.read(new File("src/images/MerchantShip.png"));
+			image = ImageIO.read(new File("src/images/Boat1.png"));
 		} catch (IOException ex) {
 			System.out.println("can't load image");
 		}
