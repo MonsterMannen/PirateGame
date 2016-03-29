@@ -22,6 +22,7 @@ public class MerchantShip extends Ship {
 		super();
 		this.name = name;
 		img = (BufferedImage) readImage();
+		speed = 2;
 	}
 	
 	private Image readImage(){

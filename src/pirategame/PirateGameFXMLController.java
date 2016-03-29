@@ -65,12 +65,10 @@ public class PirateGameFXMLController implements Initializable {
 		// create a ship
 		Ship ship1 = new PirateShip("The Walrus");
 		ship1.setSails(true);
-		ship1.setSpeed(2);
 		
 		Ship mShip = new MerchantShip("xD");
 		mShip.setSails(true);
-		mShip.setSpeed(1);
-		(new Thread(new Bot(mShip))).start();
+		(new Thread(new Bot(mShip, view))).start();
 
 		// put ships in list
 		ships.add(ship1);

@@ -31,6 +31,7 @@ public class PirateShip extends Ship {
 		this.name = name;
 		img = (BufferedImage) readImage();
 		cannon = new Cannon(paneWidth, paneHeight);
+		speed = 3;
 	}
 	
 	public ImageView fireCannon(){
